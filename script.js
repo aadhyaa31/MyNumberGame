@@ -77,7 +77,9 @@ function handleGuess() {
         : isFar
           ? 'Good guess, but you guessed too high.'
           : 'Good guess, but you guessed a little too high.';
-    hintMessage.textContent = 'You still have hints left if you want one.';
+    hintMessage.textContent = hintsUsed < MAX_HINTS
+      ? 'You still have hints left if you want one.'
+      : 'No hints left. Use your remaining guesses wisely!';
   } else {
     message.textContent = `Good try, but the answer was ${correctNumber}.`;
     hintMessage.textContent = 'Start a new game to play again!';
@@ -111,10 +113,14 @@ function handleHint() {
     } else {
       hintText = 'Hint 2: The secret number is in the fourth quarter: 76 to 100.';
     }
+  } else if (hintsUsed === 3) {
+    const tensStart = Math.floor((correctNumber - 1) / 10) * 10 + 1;
+    const tensEnd = Math.min(100, tensStart + 9);
+    hintText = `Hint 3: The secret number is in the decade from ${tensStart} to ${tensEnd}.`;
   } else {
     hintText = correctNumber % 2 === 0
-      ? 'Hint 3: The secret number is even.'
-      : 'Hint 3: The secret number is odd.';
+      ? 'Hint 4: The secret number is even.'
+      : 'Hint 4: The secret number is odd.';
   }
 
   hintMessage.textContent = hintText;
