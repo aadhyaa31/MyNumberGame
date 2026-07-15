@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Number Game</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-card">
+      <h1>🎲 Number Guessing Game</h1>
+      <p class="subtitle">Guess the secret number between 1 and 100.</p>
+
+      <section class="status-panel" aria-label="Game status">
+        <div>
+          <span>Guesses used</span>
+          <strong id="guessCount">0/3</strong>
+        </div>
+        <div>
+          <span>Hints left</span>
+          <strong id="hintCount">3</strong>
+        </div>
+      </section>
+
+      <label for="guessInput">Enter your guess</label>
+      <input id="guessInput" type="number" min="1" max="100" placeholder="Enter a number" />
+
+      <section class="button-row">
+        <button id="guessButton" class="primary">Guess (4)</button>
+        <button id="hintButton" class="secondary">Hint (4)</button>
+        <button id="newGameButton" class="accent">New Game</button>
+      </section>
+
+      <p id="message" class="message">Start a new game and make your first guess!</p>
+      <p id="hintMessage" class="hint-message"></p>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
