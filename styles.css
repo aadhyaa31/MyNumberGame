@@ -128,16 +128,20 @@ button:disabled {
 }
 
 .hint-history {
-  margin: 14px 0 12px;
-  padding: 12px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  margin: 16px 0 12px;
+  padding: 14px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.25), rgba(56, 189, 248, 0.18));
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
 }
 
 .hint-history h2 {
   margin: 0 0 6px;
   font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .hint-history-note {
@@ -152,6 +156,9 @@ button:disabled {
   color: #e2e8f0;
 }
 
-.hint-history li + li {
-  margin-top: 6px;
+.hint-history li {
+  margin-bottom: 6px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
 }
