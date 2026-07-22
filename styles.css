@@ -128,15 +128,22 @@ button:disabled {
 }
 
 .hint-history {
-  margin-top: 14px;
+  margin: 14px 0 12px;
   padding: 12px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .hint-history h2 {
-  margin: 0 0 8px;
+  margin: 0 0 6px;
   font-size: 1rem;
+}
+
+.hint-history-note {
+  margin: 0 0 8px;
+  color: #dbeafe;
+  font-size: 0.92rem;
 }
 
 .hint-history ul {

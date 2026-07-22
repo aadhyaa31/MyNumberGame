@@ -98,7 +98,7 @@ function handleGuess() {
 
 function renderHintHistory() {
   if (!hintHistory.length) {
-    hintHistoryList.innerHTML = '<li>No hints revealed yet.</li>';
+    hintHistoryList.innerHTML = '<li>Use the Hint button to save clues here.</li>';
     return;
   }
 
