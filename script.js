@@ -7,7 +7,7 @@ const hintCountDisplay = document.getElementById('hintCount');
 const message = document.getElementById('message');
 const hintMessage = document.getElementById('hintMessage');
 
-const MAX_GUESSES = 4;
+const MAX_GUESSES = 3;
 const MAX_HINTS = 4;
 
 let correctNumber = 0;
@@ -37,6 +37,7 @@ function updateStatus() {
   hintButton.textContent = `Hint (${MAX_HINTS - hintsUsed})`;
   hintButton.disabled = gameOver || hintsUsed >= MAX_HINTS;
   guessButton.disabled = gameOver || guessesUsed >= MAX_GUESSES;
+  guessInput.disabled = gameOver || guessesUsed >= MAX_GUESSES;
 }
 
 function handleGuess() {
@@ -114,9 +115,8 @@ function handleHint() {
       hintText = 'Hint 2: The secret number is in the fourth quarter: 76 to 100.';
     }
   } else if (hintsUsed === 3) {
-    const tensStart = Math.floor((correctNumber - 1) / 10) * 10 + 1;
-    const tensEnd = Math.min(100, tensStart + 9);
-    hintText = `Hint 3: The secret number is in the decade from ${tensStart} to ${tensEnd}.`;
+    const digitSum = Math.floor(correctNumber / 10) + (correctNumber % 10);
+    hintText = `Hint 3: The sum of the digits is ${digitSum}.`;
   } else {
     hintText = correctNumber % 2 === 0
       ? 'Hint 4: The secret number is even.'
