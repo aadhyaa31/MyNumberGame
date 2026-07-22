@@ -6,6 +6,7 @@ const guessCountDisplay = document.getElementById('guessCount');
 const hintCountDisplay = document.getElementById('hintCount');
 const message = document.getElementById('message');
 const hintMessage = document.getElementById('hintMessage');
+const hintHistoryList = document.getElementById('hintHistoryList');
 
 const MAX_GUESSES = 3;
 const MAX_HINTS = 4;
@@ -14,6 +15,7 @@ let correctNumber = 0;
 let guessesUsed = 0;
 let hintsUsed = 0;
 let gameOver = false;
+let hintHistory = [];
 
 function startNewGame() {
   correctNumber = Math.floor(Math.random() * 100) + 1;
@@ -26,6 +28,8 @@ function startNewGame() {
   hintButton.disabled = false;
   message.textContent = 'Start a new game and make your first guess!';
   hintMessage.textContent = '';
+  hintHistory = [];
+  renderHintHistory();
   updateStatus();
   guessInput.focus();
 }
@@ -92,6 +96,17 @@ function handleGuess() {
   guessInput.focus();
 }
 
+function renderHintHistory() {
+  if (!hintHistory.length) {
+    hintHistoryList.innerHTML = '<li>No hints revealed yet.</li>';
+    return;
+  }
+
+  hintHistoryList.innerHTML = hintHistory
+    .map((hint) => `<li>${hint}</li>`)
+    .join('');
+}
+
 function handleHint() {
   if (gameOver || hintsUsed >= MAX_HINTS) {
     return;
@@ -123,8 +138,10 @@ function handleHint() {
       : 'Hint 4: The secret number is odd.';
   }
 
+  hintHistory.push(hintText);
   hintMessage.textContent = hintText;
   message.textContent = 'A hint has been revealed.';
+  renderHintHistory();
   updateStatus();
 }
 

@@ -126,3 +126,25 @@ button:disabled {
   font-weight: 600;
   min-height: 24px;
 }
+
+.hint-history {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.hint-history h2 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.hint-history ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #e2e8f0;
+}
+
+.hint-history li + li {
+  margin-top: 6px;
+}
